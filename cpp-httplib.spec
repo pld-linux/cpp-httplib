@@ -15,8 +15,10 @@ BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	openssl-devel >= 3.0.0
 BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	zlib-devel
-BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# header-only library, but cmake files location is arch-dependent
+%define		_enable_debug_packages	0
 
 %description
 A C++11 single-file header-only cross platform HTTP/HTTPS library.
